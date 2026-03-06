@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>土木工程专业英语 · 第一课 单词背诵卡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f0f4f8 0%, #e6ecf3 100%);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .app-wrapper {
+            max-width: 1300px;
+            width: 100%;
+        }
+
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .title-section h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #1e3c5c, #2b4e73);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .title-section .sub {
+            font-size: 1rem;
+            color: #3f5e7a;
+            margin-top: 0.3rem;
+            border-left: 4px solid #4a80c0;
+            padding-left: 1rem;
+            background: rgba(255,255,255,0.5);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            background: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            box-shadow: 0 8px 18px rgba(0,20,40,0.08);
+            align-items: center;
+        }
+
+        .btn {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1.4rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.2s;
+            background-color: #edf2f9;
+            color: #1e3c5c;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .btn:hover {
+            background-color: #d9e4f0;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,30,60,0.1);
+        }
+
+        .btn.primary {
+            background-color: #1e3c5c;
+            color: white;
+        }
+
+        .btn.primary:hover {
+            background-color: #2a4f74;
+        }
+
+        .status-badge {
+            color: #3f5e7a;
+            font-size: 0.9rem;
+            padding: 0.2rem 1rem;
+            background: #e0e9f2;
+            border-radius: 30px;
+            white-space: nowrap;
+        }
+
+        /* 单词网格 */
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .word-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 15px 30px -12px rgba(0, 30, 50, 0.2),
+                        0 0 0 1px rgba(255,255,255,0.7) inset;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .word-card:hover {
+            transform: scale(1.02);
+            background: white;
+            box-shadow: 0 25px 35px -14px #1e3c5c33;
+        }
+
+        .word-number {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #7a9bcb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+        }
+
+        .word-english {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0a263b;
+            line-height: 1.3;
+            word-break: break-word;
+            margin-bottom: 0.75rem;
+            border-bottom: 2px dashed #b3cae3;
+            padding-bottom: 0.6rem;
+        }
+
+        .meaning {
+            font-size: 1.1rem;
+            color: #17406b;
+            background: #ebf2fa;
+            padding: 0.8rem 1rem;
+            border-radius: 20px;
+            line-height: 1.5;
+            word-break: break-word;
+            transition: filter 0.2s, background 0.2s;
+            display: inline-block;
+            width: fit-content;
+            max-width: 100%;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        /* 隐藏释义模式 */
+        .hide-meanings .meaning {
+            filter: blur(6px);
+            background: #cdddec;
+            user-select: none;
+            cursor: default;
+            transition: filter 0.2s;
+        }
+
+        /* 工具提示 */
+        .tip {
+            margin-top: 2.5rem;
+            text-align: center;
+            color: #4b6f8f;
+            font-size: 0.95rem;
+            font-style: italic;
+            background: rgba(255,255,255,0.6);
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            backdrop-filter: blur(4px);
+            border: 1px solid #ffffff;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            color: #778fa9;
+            font-size: 0.85rem;
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 600px) {
+            body { padding: 1.5rem 1rem; }
+            .title-section h1 { font-size: 1.8rem; }
+            .controls { flex-wrap: wrap; justify-content: center; }
+            .btn { padding: 0.5rem 1rem; }
+            .word-english { font-size: 1.4rem; }
+        }
+
+        /* 动画 */
+        @keyframes gentleFade {
+            0% { opacity: 0; transform: translateY(8px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .word-card {
+            animation: gentleFade 0.4s ease backwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="header">
+            <div class="title-section">
+                <h1>📐 Lesson 1 · Civil Engineering</h1>
+                <div class="sub">第一课 专业词汇 · 中英对照背诵卡</div>
+            </div>
+            <div class="controls">
+                <span class="status-badge" id="wordCount">24 词</span>
+                <button class="btn" id="toggleMeaningsBtn" aria-label="切换隐藏释义">🔍 隐藏释义</button>
+                <button class="btn primary" id="resetViewBtn">⟲ 重置</button>
+            </div>
+        </div>
+
+        <!-- 单词网格将动态插入至此 -->
+        <div id="wordGrid" class="word-grid"></div>
+
+        <div class="tip">
+            ⚡ 点击“隐藏释义”可模糊中文 · 再次点击显示 · 自测背诵
+        </div>
+        <div class="footer-note">
+            ※ 源自《土木工程专业英语》第3版 (段兵廷 主编) · 仅供学习使用
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ----- 第一课 新单词列表 (英文 + 中文释义) -----
+            const words = [
+                { english: "predominate", chinese: "居支配地位，统治，(数量上)占优势" },
+                { english: "geotechnical", chinese: "岩土工程的" },
+                { english: "specification", chinese: "载明，详述，技术要求，说明书，清单" },
+                { english: "supervise", chinese: "监督，管理，控制" },
+                { english: "subcontractors", chinese: "转包合同，转包工作(给第三者)，承做(转包的工作)" },
+                { english: "hurricane", chinese: "飓风，(感情等的)爆发" },
+                { english: "asphalt", chinese: "沥青，铺沥青于" },
+                { english: "aluminum", chinese: "[化]铝" },
+                { english: "runoff", chinese: "雨量，流量，决赛，决定性竞选" },
+                { english: "lock", chinese: "水闸，闸门" },
+                { english: "fill", chinese: "充足，饱满，装填物，(一)袋，填土，填方" },
+                { english: "scrubber", chinese: "洗涤器，涤气器，滤清器，板刷，擦布，擦洗者" },
+                { english: "incineration", chinese: "烧尽，焚化，火葬" },
+                { english: "toxic", chinese: "有毒(性)的，中毒的" },
+                { english: "combustible", chinese: "易燃的，可燃的，易激动的" },
+                { english: "ramp", chinese: "斜坡，斜面，滑行台" },
+                { english: "excavate", chinese: "挖掘，发掘，在……上挖掘，挖出，变成空洞" },
+                { english: "precisely", chinese: "精确的，刻板的，正好，恰恰，确实如此" },
+                { english: "aerial", chinese: "空气的，大气的，航空的，架空的，生存在空中的" },
+                { english: "sonic", chinese: "能发出声音的，[物]声音的，音速的，利用音波的" },
+                { english: "plotting", chinese: "测绘，标图，标航路" },
+                { english: "municipal", chinese: "市政的，市立的，地方自治的，地方(性)" },
+                { english: "commission", chinese: "委任，委托(事项)，委员会" },
+                { english: "drainage system", chinese: "排水系统" }
+            ];
+
+            // 显示单词总数的徽章
+            document.getElementById('wordCount').innerText = `${words.length} 词`;
+
+            const grid = document.getElementById('wordGrid');
+            const toggleBtn = document.getElementById('toggleMeaningsBtn');
+            const resetBtn = document.getElementById('resetViewBtn');
+            const appWrapper = document.querySelector('.app-wrapper'); // 用于添加类控制隐藏
+
+            // 渲染所有卡片
+            function renderCards() {
+                grid.innerHTML = '';  // 清空
+                words.forEach((item, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'word-card';
+                    // 增加一点动画延时 (可选项)
+                    card.style.animationDelay = `${index * 0.02}s`;
+
+                    const numberSpan = document.createElement('div');
+                    numberSpan.className = 'word-number';
+                    numberSpan.textContent = `#${(index + 1).toString().padStart(2, '0')}`;
+
+                    const engSpan = document.createElement('div');
+                    engSpan.className = 'word-english';
+                    engSpan.textContent = item.english;
+
+                    const chiSpan = document.createElement('span');
+                    chiSpan.className = 'meaning';
+                    chiSpan.textContent = item.chinese;
+
+                    card.appendChild(numberSpan);
+                    card.appendChild(engSpan);
+                    card.appendChild(chiSpan);
+                    grid.appendChild(card);
+                });
+            }
+
+            // 切换隐藏/显示释义 (通过给 .app-wrapper 添加类)
+            function toggleMeanings(forceHide) {
+                if (forceHide === true) {
+                    appWrapper.classList.add('hide-meanings');
+                    toggleBtn.textContent = '🔍 显示释义';
+                } else if (forceHide === false) {
+                    appWrapper.classList.remove('hide-meanings');
+                    toggleBtn.textContent = '🔍 隐藏释义';
+                } else {
+                    // 切换
+                    if (appWrapper.classList.contains('hide-meanings')) {
+                        appWrapper.classList.remove('hide-meanings');
+                        toggleBtn.textContent = '🔍 隐藏释义';
+                    } else {
+                        appWrapper.classList.add('hide-meanings');
+                        toggleBtn.textContent = '🔍 显示释义';
+                    }
+                }
+            }
+
+            // 重置到初始状态 (显示释义)
+            function resetToShow() {
+                appWrapper.classList.remove('hide-meanings');
+                toggleBtn.textContent = '🔍 隐藏释义';
+            }
+
+            // 事件绑定
+            toggleBtn.addEventListener('click', () => toggleMeanings());
+            resetBtn.addEventListener('click', resetToShow);
+
+            // 初始化渲染
+            renderCards();
+
+            // 可选：防止点击隐藏的卡片时意外选中 (但模糊已经降低可读性，无伤大雅)
+            // 如果用户双击卡片也可以做扩展，但保持简洁。
+        })();
+    </script>
+</body>
+</html>
