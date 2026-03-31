@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>土木工程专业英语 · 第15课 单词卡（土力学）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #eef2f6 0%, #e0e8f0 100%);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .app-wrapper {
+            max-width: 1300px;
+            width: 100%;
+        }
+
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .title-section h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #1e4a6b, #2c6b8f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .title-section .sub {
+            font-size: 1rem;
+            color: #2e5570;
+            margin-top: 0.3rem;
+            border-left: 4px solid #4f9bc2;
+            padding-left: 1rem;
+            background: rgba(255,255,255,0.6);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 0.8rem;
+            background: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            box-shadow: 0 8px 18px rgba(0,20,40,0.08);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1.4rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.2s;
+            background-color: #e3ecf5;
+            color: #1c415e;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            background-color: #cbddec;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,40,70,0.1);
+        }
+
+        .btn.primary {
+            background-color: #1c4b6e;
+            color: white;
+        }
+
+        .btn.primary:hover {
+            background-color: #2b638b;
+        }
+
+        .btn.secondary {
+            background-color: #dce5f0;
+            color: #1c415e;
+        }
+
+        .status-badge {
+            color: #2a5777;
+            font-size: 0.9rem;
+            padding: 0.2rem 1rem;
+            background: #d8e7f5;
+            border-radius: 30px;
+            white-space: nowrap;
+        }
+
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .word-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 15px 30px -12px rgba(0, 30, 50, 0.2),
+                        0 0 0 1px rgba(255,255,255,0.7) inset;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .word-card:hover {
+            transform: scale(1.02);
+            background: white;
+            box-shadow: 0 25px 35px -14px #1e3c5c33;
+        }
+
+        .word-number {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #7da5c9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+        }
+
+        .word-english {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0a263b;
+            line-height: 1.3;
+            word-break: break-word;
+            margin-bottom: 0.75rem;
+            border-bottom: 2px dashed #b8d1e9;
+            padding-bottom: 0.6rem;
+        }
+
+        .meaning {
+            font-size: 1rem;
+            color: #103c5c;
+            background: #e6f0fa;
+            padding: 0.8rem 1rem;
+            border-radius: 20px;
+            line-height: 1.5;
+            word-break: break-word;
+            transition: filter 0.2s, background 0.2s, box-shadow 0.1s;
+            cursor: pointer;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+            user-select: none;
+        }
+
+        .meaning:hover {
+            background: #d3e4f5;
+            box-shadow: 0 2px 8px rgba(30, 80, 120, 0.15);
+        }
+
+        .meaning-hidden {
+            filter: blur(5px);
+            background: #c2d4e6;
+            color: transparent;
+            transition: filter 0.2s, background 0.2s;
+            cursor: pointer;
+        }
+
+        .meaning-hidden::selection {
+            background: transparent;
+        }
+
+        .footer-tip {
+            margin-top: 2.5rem;
+            text-align: center;
+            color: #2b5f82;
+            font-size: 0.95rem;
+            font-style: italic;
+            background: rgba(255,255,255,0.7);
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            backdrop-filter: blur(4px);
+            border: 1px solid #ffffff;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            color: #6685a2;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1.5rem 1rem; }
+            .title-section h1 { font-size: 1.8rem; }
+            .controls { justify-content: center; }
+            .btn { padding: 0.4rem 1rem; font-size: 0.9rem; }
+            .word-english { font-size: 1.3rem; }
+        }
+
+        .word-card {
+            animation: gentleFade 0.4s ease backwards;
+        }
+        @keyframes gentleFade {
+            0% { opacity: 0; transform: translateY(8px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+<div class="app-wrapper">
+    <div class="header">
+        <div class="title-section">
+            <h1>🏗️ Lesson 15 · Soil Mechanics</h1>
+            <div class="sub">第15课 土力学 · 课本词汇表</div>
+        </div>
+        <div class="controls">
+            <span class="status-badge" id="wordCount">24 词</span>
+            <button class="btn secondary" id="hideAllBtn">🙈 隐藏全部中文</button>
+            <button class="btn primary" id="showAllBtn">🔍 显示全部中文</button>
+        </div>
+    </div>
+
+    <div id="wordGrid" class="word-grid"></div>
+
+    <div class="footer-tip">
+        💡 单击任意中文区域，可单独隐藏或显示该词释义
+    </div>
+    <div class="footer-note">
+        ※ 源自《土木工程专业英语》第3版 (段兵廷 主编) · 第15课词汇
+    </div>
+</div>
+
+<script>
+(function() {
+    // 第15课单词列表 (英文, 中文)
+    const words = [
+        { english: "aggregate", chinese: "集合体, 聚集体, 集料, 骨料" },
+        { english: "heterogeneity", chinese: "不均匀性, 多相性, 异质性" },
+        { english: "equilibrium", chinese: "平衡, 均衡, 平均, 相称" },
+        { english: "rupture", chinese: "破裂, 裂开, 断裂, 破坏" },
+        { english: "waterlogged", chinese: "浸透水的, 水淹的, 水涝的" },
+        { english: "coin", chinese: "创造, 杜撰(新词等)" },
+        { english: "numerical", chinese: "数字的, 数值的, 用数字表示的" },
+        { english: "friction", chinese: "摩擦, 摩擦力, 阻力" },
+        { english: "capillarity", chinese: "毛细管作用, 毛细管现象" },
+        { english: "molecular", chinese: "分子的, 由分子构成的" },
+        { english: "compressibility", chinese: "可压缩性, 压缩系数" },
+        { english: "tamp", chinese: "填塞, 夯实, 捣实" },
+        { english: "flexible", chinese: "柔韧的, 柔软的, 有弹性的" },
+        { english: "thaw", chinese: "融化, 融解, 解冻" },
+        { english: "visual", chinese: "直观的, 形象的, 目视的" },
+        { english: "elaborate", chinese: "精巧的, 精心的, 复杂的" },
+        { english: "duly", chinese: "充分地, 及时地, 适当地" },
+        { english: "topography", chinese: "地形, 地势, 地形学" },
+        { english: "paleontological", chinese: "古生物学的" },
+        { english: "corroboratory", chinese: "确证的, 确定的, 证实的" },
+        { english: "insight", chinese: "洞察(力), 洞悉, 理解, 见识" },
+        { english: "propagation", chinese: "传播, 扩散" },
+        { english: "probe", chinese: "探针, 探头, 探测器, 传感器" },
+        { english: "time lag", chinese: "时间滞差, 时滞, 延时" }
+    ];
+
+    const grid = document.getElementById('wordGrid');
+    const wordCountSpan = document.getElementById('wordCount');
+    wordCountSpan.innerText = `${words.length} 词`;
+
+    function renderCards() {
+        grid.innerHTML = '';
+        words.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'word-card';
+            card.style.animationDelay = `${index * 0.02}s`;
+
+            const numberDiv = document.createElement('div');
+            numberDiv.className = 'word-number';
+            numberDiv.textContent = `#${(index + 1).toString().padStart(2, '0')}`;
+
+            const englishDiv = document.createElement('div');
+            englishDiv.className = 'word-english';
+            englishDiv.textContent = item.english;
+
+            const meaningDiv = document.createElement('div');
+            meaningDiv.className = 'meaning';
+            meaningDiv.textContent = item.chinese;
+
+            meaningDiv.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('meaning-hidden');
+            });
+
+            card.appendChild(numberDiv);
+            card.appendChild(englishDiv);
+            card.appendChild(meaningDiv);
+            grid.appendChild(card);
+        });
+    }
+
+    function showAllMeanings() {
+        document.querySelectorAll('.meaning').forEach(meaning => {
+            meaning.classList.remove('meaning-hidden');
+        });
+    }
+
+    function hideAllMeanings() {
+        document.querySelectorAll('.meaning').forEach(meaning => {
+            meaning.classList.add('meaning-hidden');
+        });
+    }
+
+    document.getElementById('showAllBtn').addEventListener('click', showAllMeanings);
+    document.getElementById('hideAllBtn').addEventListener('click', hideAllMeanings);
+
+    renderCards();
+})();
+</script>
+</body>
+</html>
