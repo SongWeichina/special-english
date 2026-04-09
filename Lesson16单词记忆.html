@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>土木工程专业英语 · 第16课 单词卡（基础工程）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #eef2f6 0%, #e0e8f0 100%);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .app-wrapper {
+            max-width: 1300px;
+            width: 100%;
+        }
+
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .title-section h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #1e4a6b, #2c6b8f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .title-section .sub {
+            font-size: 1rem;
+            color: #2e5570;
+            margin-top: 0.3rem;
+            border-left: 4px solid #4f9bc2;
+            padding-left: 1rem;
+            background: rgba(255,255,255,0.6);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 0.8rem;
+            background: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            box-shadow: 0 8px 18px rgba(0,20,40,0.08);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1.4rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.2s;
+            background-color: #e3ecf5;
+            color: #1c415e;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            background-color: #cbddec;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,40,70,0.1);
+        }
+
+        .btn.primary {
+            background-color: #1c4b6e;
+            color: white;
+        }
+
+        .btn.primary:hover {
+            background-color: #2b638b;
+        }
+
+        .btn.secondary {
+            background-color: #dce5f0;
+            color: #1c415e;
+        }
+
+        .status-badge {
+            color: #2a5777;
+            font-size: 0.9rem;
+            padding: 0.2rem 1rem;
+            background: #d8e7f5;
+            border-radius: 30px;
+            white-space: nowrap;
+        }
+
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .word-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 15px 30px -12px rgba(0, 30, 50, 0.2),
+                        0 0 0 1px rgba(255,255,255,0.7) inset;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .word-card:hover {
+            transform: scale(1.02);
+            background: white;
+            box-shadow: 0 25px 35px -14px #1e3c5c33;
+        }
+
+        .word-number {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #7da5c9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+        }
+
+        .word-english {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0a263b;
+            line-height: 1.3;
+            word-break: break-word;
+            margin-bottom: 0.3rem;
+            border-bottom: 2px dashed #b8d1e9;
+            padding-bottom: 0.4rem;
+        }
+
+        .pronounce {
+            font-size: 0.85rem;
+            color: #6f8fb2;
+            margin-bottom: 0.8rem;
+            font-family: monospace;
+        }
+
+        .meaning {
+            font-size: 1rem;
+            color: #103c5c;
+            background: #e6f0fa;
+            padding: 0.8rem 1rem;
+            border-radius: 20px;
+            line-height: 1.5;
+            word-break: break-word;
+            transition: filter 0.2s, background 0.2s, box-shadow 0.1s;
+            cursor: pointer;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+            user-select: none;
+        }
+
+        .meaning:hover {
+            background: #d3e4f5;
+            box-shadow: 0 2px 8px rgba(30, 80, 120, 0.15);
+        }
+
+        .meaning-hidden {
+            filter: blur(5px);
+            background: #c2d4e6;
+            color: transparent;
+            transition: filter 0.2s, background 0.2s;
+            cursor: pointer;
+        }
+
+        .meaning-hidden::selection {
+            background: transparent;
+        }
+
+        .footer-tip {
+            margin-top: 2.5rem;
+            text-align: center;
+            color: #2b5f82;
+            font-size: 0.95rem;
+            font-style: italic;
+            background: rgba(255,255,255,0.7);
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            backdrop-filter: blur(4px);
+            border: 1px solid #ffffff;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            color: #6685a2;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1.5rem 1rem; }
+            .title-section h1 { font-size: 1.8rem; }
+            .controls { justify-content: center; }
+            .btn { padding: 0.4rem 1rem; font-size: 0.9rem; }
+            .word-english { font-size: 1.3rem; }
+        }
+
+        .word-card {
+            animation: gentleFade 0.4s ease backwards;
+        }
+        @keyframes gentleFade {
+            0% { opacity: 0; transform: translateY(8px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+<div class="app-wrapper">
+    <div class="header">
+        <div class="title-section">
+            <h1>🏗️ Lesson 16 · Foundations</h1>
+            <div class="sub">第16课 基础工程 · 课本词汇表（含音标）</div>
+        </div>
+        <div class="controls">
+            <span class="status-badge" id="wordCount">24 词</span>
+            <button class="btn secondary" id="hideAllBtn">🙈 隐藏全部中文</button>
+            <button class="btn primary" id="showAllBtn">🔍 显示全部中文</button>
+        </div>
+    </div>
+
+    <div id="wordGrid" class="word-grid"></div>
+
+    <div class="footer-tip">
+        💡 单击任意中文区域，可单独隐藏或显示该词释义
+    </div>
+    <div class="footer-note">
+        ※ 源自《土木工程专业英语》第3版 (段兵廷 主编) · 第16课词汇 (音标参考美式发音)
+    </div>
+</div>
+
+<script>
+(function() {
+    // 第16课单词列表 (英文, 美式音标, 中文)
+    const words = [
+        { english: "footing", pronounce: "/ˈfʊt̬.ɪŋ/", chinese: "基础, 基脚, 底座" },
+        { english: "rectangular", pronounce: "/rekˈtæŋ.ɡjə.lɚ/", chinese: "矩形的, 长方形的, 直交的" },
+        { english: "trapezoidal", pronounce: "/ˌtræp.əˈzɔɪ.dəl/", chinese: "梯形的, 不规则四边形的" },
+        { english: "description", pronounce: "/dɪˈskrɪp.ʃən/", chinese: "描述, 描绘, 说明书, 种类" },
+        { english: "caution", pronounce: "/ˈkɑː.ʃən/", chinese: "小心, 谨慎, 注意" },
+        { english: "enlarge", pronounce: "/ɪnˈlɑːrdʒ/", chinese: "扩大, 扩建, 增加" },
+        { english: "retention", pronounce: "/rɪˈten.ʃən/", chinese: "滞留, 保留, 保持" },
+        { english: "frost", pronounce: "/frɑːst/", chinese: "霜, 霜冻, 严寒, 冰冻" },
+        { english: "discontinuity", pronounce: "/ˌdɪs.kɑːn.tənˈuː.ə.t̬i/", chinese: "间断, 不连续面, 不整合" },
+        { english: "sump", pronounce: "/sʌmp/", chinese: "水坑, 积水井, 积水坑, 污水坑" },
+        { english: "grout", pronounce: "/ɡraʊt/", chinese: "薄泥浆, 水泥浆, 浆液, 灌浆" },
+        { english: "subside", pronounce: "/səbˈsaɪd/", chinese: "下沉, 下陷, 沉降" },
+        { english: "infiltrate", pronounce: "/ˈɪn.fɪl.treɪt/", chinese: "渗入, 渗透, 渗滤, 透过" },
+        { english: "basement", pronounce: "/ˈbeɪs.mənt/", chinese: "地下室, 地窖, 基础" },
+        { english: "encase", pronounce: "/ɪnˈkeɪs/", chinese: "围, 包裹, 包住, 埋入" },
+        { english: "accumulate", pronounce: "/əˈkjuː.mjə.leɪt/", chinese: "积聚, 堆积, 蓄积, 存储" },
+        { english: "weep", pronounce: "/wiːp/", chinese: "渗漏, 滴水, 泌水" },
+        { english: "flexibility", pronounce: "/ˌflek.səˈbɪl.ə.t̬i/", chinese: "弹性, 柔性, 挠性" },
+        { english: "swell", pronounce: "/swel/", chinese: "隆起, 涨水, 膨胀, 增大" },
+        { english: "backfill", pronounce: "/ˈbæk.fɪl/", chinese: "装填, 回填, 回填土" },
+        { english: "admixture", pronounce: "/ædˈmɪks.tʃɚ/", chinese: "掺合料, 掺和剂, 混合物" },
+        { english: "mat foundation", pronounce: "/mæt faʊnˈdeɪ.ʃən/", chinese: "板式基础, 筏基" },
+        { english: "slab foundation", pronounce: "/slæb faʊnˈdeɪ.ʃən/", chinese: "平板基础" },
+        { english: "plain concrete", pronounce: "/pleɪn ˈkɑːn.kriːt/", chinese: "素混凝土" }
+    ];
+
+    const grid = document.getElementById('wordGrid');
+    const wordCountSpan = document.getElementById('wordCount');
+    wordCountSpan.innerText = `${words.length} 词`;
+
+    function renderCards() {
+        grid.innerHTML = '';
+        words.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'word-card';
+            card.style.animationDelay = `${index * 0.02}s`;
+
+            const numberDiv = document.createElement('div');
+            numberDiv.className = 'word-number';
+            numberDiv.textContent = `#${(index + 1).toString().padStart(2, '0')}`;
+
+            const englishDiv = document.createElement('div');
+            englishDiv.className = 'word-english';
+            englishDiv.textContent = item.english;
+
+            const pronounceDiv = document.createElement('div');
+            pronounceDiv.className = 'pronounce';
+            pronounceDiv.textContent = item.pronounce;
+
+            const meaningDiv = document.createElement('div');
+            meaningDiv.className = 'meaning';
+            meaningDiv.textContent = item.chinese;
+
+            meaningDiv.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('meaning-hidden');
+            });
+
+            card.appendChild(numberDiv);
+            card.appendChild(englishDiv);
+            card.appendChild(pronounceDiv);
+            card.appendChild(meaningDiv);
+            grid.appendChild(card);
+        });
+    }
+
+    function showAllMeanings() {
+        document.querySelectorAll('.meaning').forEach(meaning => {
+            meaning.classList.remove('meaning-hidden');
+        });
+    }
+
+    function hideAllMeanings() {
+        document.querySelectorAll('.meaning').forEach(meaning => {
+            meaning.classList.add('meaning-hidden');
+        });
+    }
+
+    document.getElementById('showAllBtn').addEventListener('click', showAllMeanings);
+    document.getElementById('hideAllBtn').addEventListener('click', hideAllMeanings);
+
+    renderCards();
+})();
+</script>
+</body>
+</html>

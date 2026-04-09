@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>土木工程专业英语 · 第15课 土力学 | 教学课件（投影优化版）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f8; /* 柔和高明度背景，投影不刺眼 */
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            color: #111; /* 主体文字纯黑，极高对比度 */
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        /* 头部深色背景不变（白字依然清晰） */
+        .hero {
+            background: linear-gradient(135deg, #0a3144, #08212f);
+            color: white;
+            padding: 2rem 2rem 1.8rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.3px;
+        }
+        .hero .sub {
+            font-size: 1rem;
+            opacity: 0.9;
+            border-top: 1px solid rgba(255,255,255,0.4);
+            display: inline-block;
+            padding-top: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .hero .instructor {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+        }
+
+        /* 内容区 */
+        .content {
+            padding: 2rem 2rem 2.5rem;
+            background: #fff;
+        }
+
+        /* 章节标题 - 加深颜色 */
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #004466;
+            border-left: 6px solid #1a7b5c;
+            padding-left: 1rem;
+            margin: 1.8rem 0 1.2rem 0;
+        }
+        .section-sub {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a5a78;
+            margin: 1.2rem 0 0.8rem 0;
+            padding-left: 0.5rem;
+            border-bottom: 2px solid #cbdbe0;
+            display: inline-block;
+        }
+
+        /* 卡片样式 - 背景明亮，文字纯黑或深灰 */
+        .gram-card, .vocab-card, .example-card {
+            background: #ffffff;
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            border: 1px solid #e0e6ed;
+            transition: all 0.2s;
+        }
+        .gram-card:hover, .example-card:hover {
+            border-color: #a0b8ce;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .eng-sentence {
+            font-weight: 700;
+            color: #002b44;
+            background: #f0f5fa;
+            padding: 0.7rem 1rem;
+            border-radius: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            border-left: 4px solid #2a7f6e;
+        }
+        .translation {
+            color: #1a4c3a;
+            margin-top: 0.4rem;
+            padding-left: 0.8rem;
+            border-left: 3px solid #7fc29b;
+            font-style: normal;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        .grammar-note {
+            background: #fef2d6;
+            padding: 0.6rem 1rem;
+            border-radius: 0.7rem;
+            font-size: 0.9rem;
+            color: #5e3a1a;
+            margin-top: 0.7rem;
+            border-left: 4px solid #e6a017;
+            font-weight: 500;
+        }
+        .vocab-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        .vocab-item {
+            background: #e9f0f5;
+            border-radius: 2rem;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.85rem;
+            font-family: monospace;
+            color: #003153;
+        }
+        .vocab-item strong {
+            color: #1c6e4a;
+        }
+        .badge {
+            background: #d9e6f2;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            color: #003057;
+        }
+        .row-two-col {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        .col {
+            flex: 1;
+            min-width: 250px;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #c0d4e8, transparent);
+        }
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #3a6b8f;
+            padding: 1.5rem 2rem 2rem;
+            border-top: 1px solid #e2ecf5;
+            margin-top: 1rem;
+            background: #fff;
+        }
+        @media (max-width: 700px) {
+            .content { padding: 1.2rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .eng-sentence { font-size: 0.9rem; }
+        }
+        .term-highlight {
+            background: #eaf2f9;
+            font-weight: 600;
+            padding: 0 0.2rem;
+            border-radius: 0.3rem;
+            color: #003366;
+        }
+        .small-code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f1f3f8;
+            padding: 0.1rem 0.3rem;
+            border-radius: 0.3rem;
+            font-size: 0.85rem;
+            color: #1f3b4c;
+        }
+        .phonetic {
+            font-family: monospace;
+            color: #4d6a7e;
+            font-size: 0.8rem;
+        }
+        /* 增强列表项可见性 */
+        li, p, .gram-card div {
+            color: #111;
+        }
+        .gram-card .badge + div {
+            color: #111;
+        }
+        a {
+            color: #005f8c;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>🏗️ 土木工程专业英语</h1>
+        <div class="sub">Lesson 15 · Soil Mechanics 土力学</div>
+        <div class="instructor">主讲人：宋威 | 智能建造教研室</div>
+    </div>
+
+    <div class="content">
+        <!-- ========= 一、语法与句型（回顾） ========= -->
+        <div class="section-title">📌 语法与句型（回顾）</div>
+        <div class="gram-card">
+            <div class="badge">目的状语 vs 伴随状语</div>
+            <div class="eng-sentence">On an urban or local level the use of underground facilities is rising <span class="term-highlight">to accommodate</span> the complex demands of today's society <span class="term-highlight">while improving</span> the environment.</div>
+            <div class="translation">在城市或地方层面，地下设施的使用正在增加，以满足当今社会日益复杂的需求，同时改善环境。</div>
+            <div class="grammar-note">✨ <strong>to accommodate</strong> 不定式作目的状语；<strong>while improving</strong> 现在分词作伴随状语（表示同时发生）。</div>
+            <div class="eng-sentence" style="margin-top:0.8rem;">... it is difficult <span class="term-highlight">if not impossible</span> to add new infrastructure at ground level ...</div>
+            <div class="translation">……在地面增加新的基础设施即使不是不可能，也是极其困难的……</div>
+            <div class="grammar-note">📖 “if not impossible” 插入语，对 difficult 进行递进强调。</div>
+        </div>
+
+        <!-- ========= 二、重点词汇 & 短语 ========= -->
+        <div class="section-title">📖 重点词汇 & 短语</div>
+        <div class="row-two-col">
+            <div class="col">
+                <div class="gram-card">
+                    <div class="badge">地下空间开发领域</div>
+                    <div>transportation, municipal services, warehousing, disaster prevention, commercial purposes.</div>
+                    <div class="grammar-note" style="margin-top:0.6rem;">✅ <strong>urban</strong> /ˈɝː.bən/ 城市的 &nbsp;&nbsp; <strong>urbanization</strong> /ˌɝː.bə.nəˈzeɪ.ʃən/ 城市化</div>
+                    <div class="grammar-note">📌 be compounded by → 因……而加剧/恶化<br>📌 for the most part → 大部分情况下<br>📌 differ little from → 与……并无太大区别</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="gram-card">
+                    <div class="badge">数字单位</div>
+                    <div>hundred, thousand, million, billion, trillion</div>
+                    <div class="badge" style="margin-top:0.5rem;">by-products</div>
+                    <div>名词复数：副产品，副产物</div>
+                    <div class="eng-sentence" style="margin-top:0.6rem;">Underground structures are not <strong>as easily dismantled as</strong> surface buildings.</div>
+                    <div class="translation">地下结构不像地表建筑那样容易拆除。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========= 三、土力学核心内容 ========= -->
+        <div class="section-title">🌍 Lesson 15 · Soil Mechanics 土力学</div>
+
+        <!-- 定义与成分 -->
+        <div class="gram-card">
+            <div class="badge">定义 · 土的三相组成</div>
+            <div class="eng-sentence">Soil mechanics is concerned with the use of the laws of mechanics and hydraulics in engineering problems related to soils.</div>
+            <div class="translation">土力学是与土壤有关的工程问题中涉及到力学与水力学的原理运用的一门学科。</div>
+            <div class="eng-sentence">Soil is a natural aggregate of mineral grains, with or without organic constituents, formed by the chemical and mechanical weathering of rock. It consists of three phases: solid mineral matter, water, and air or other gas.</div>
+            <div class="translation">土是一种天然矿物颗粒的聚集物，有的含有机成分，有的不含，它由岩石的化学和物理风化作用形成。它包括三种成分：固体矿物质，水以及空气或其他气体。</div>
+            <div class="grammar-note">🔬 <strong>aggregate</strong> /ˈæɡ.rɪ.ɡət/ 集料；<strong>weathering</strong> /ˈweð.ər.ɪŋ/ 风化作用；<strong>constituent</strong> /kənˈstɪtʃuənt/ 成分<br>📌 formed by... 过去分词短语作后置定语。</div>
+        </div>
+
+        <!-- 不均匀性 & 强调句型 -->
+        <div class="gram-card">
+            <div class="badge">土壤的变异性 · 强调句型</div>
+            <div class="eng-sentence">Soils are extremely variable in composition, and it was <strong>this heterogeneity</strong> that long discouraged scientific studies of these deposits.</div>
+            <div class="translation">土质组成变化很大，正是这种多相性大大地阻碍了科学家对这些沉积物的研究。</div>
+            <div class="grammar-note">✨ <strong>it was...that...</strong> 强调句型，强调主语 this heterogeneity。<br>📌 heterogeneity /ˌhet̬.ə.roʊ.dʒəˈniː.ə.t̬i/ 不均匀性；deposits /dɪˈpɑː.zɪts/ 沉积物。</div>
+        </div>
+
+        <!-- 知识积累 + 后置定语 + as宾补 -->
+        <div class="gram-card">
+            <div class="badge">知识积累 → 土力学诞生</div>
+            <div class="eng-sentence">Gradually, the investigation of failures of retaining walls, foundations, embankments, pavements, and other structures resulted in a body of knowledge concerning the nature of soils and their behavior sufficient to give rise to soil mechanics as a branch of engineering science.</div>
+            <div class="translation">渐渐地，对挡土墙、基础、路堤、路面和其他结构的事故调查得到了大量关于土的性质和性能的知识，这些知识足以使土力学发展为工程科学的一个分支。</div>
+            <div class="grammar-note">🧩 <strong>concerning...</strong> 现在分词短语作后置定语（内容）；<strong>sufficient to...</strong> 形容词短语作后置定语（程度）；<strong>as a branch...</strong> 介词短语作宾语补足语，补充说明 soil mechanics 的身份。</div>
+        </div>
+
+        <!-- 历史：库仑 & 朗肯 -->
+        <div class="gram-card">
+            <div class="badge">历史奠基 · 库仑 & 朗肯</div>
+            <div class="eng-sentence">Little progress was made in dealing with soil problems on a scientific basis until the latter half of the 18th century, when the French physicist Charles-Augustin de Coulomb published his theory of earth pressure (1773).</div>
+            <div class="translation">直到18世纪后半期，法国物理学家夏尔-奥古斯丁·库仑发表了他的土压力理论（1773年），以科学为基础处理土壤问题才取得了进展。</div>
+            <div class="eng-sentence">In 1857 the Scottish engineer William Rankine developed a theory of equilibrium of earth masses and applied it to some elementary problems of foundation engineering.</div>
+            <div class="translation">1857年，苏格兰工程师威廉·朗肯提出了土体平衡理论，并将其应用于一些基础工程的基本问题。</div>
+            <div class="grammar-note">📐 <strong>earth masses</strong> 土体（连续体概念）；<strong>little</strong> 具有否定意义（几乎没有）。</div>
+        </div>
+
+        <!-- 经典理论局限性 -->
+        <div class="gram-card">
+            <div class="badge">经典理论的局限 · 内聚力缺失</div>
+            <div class="eng-sentence">These two classical theories still form the basis of current methods of estimating earth pressure, even though they were based on the misconception that all soils lack cohesion, <strong>as does dry sand</strong>.</div>
+            <div class="translation">这两种经典理论至今仍是当前土压力计算方法的基础，尽管它们基于一个错误观念，即所有土都像干砂一样缺乏内聚力。</div>
+            <div class="grammar-note">⚡ <strong>as does dry sand</strong> 比较状语从句（倒装），as 引导，does 代替 lacks cohesion。</div>
+            <div class="eng-sentence">Twentieth-century advances have been in the direction of taking cohesion into account; understanding the basic physical properties of soils in general and of the plasticity of clay in particular; and systematically studying the shearing characteristics of soils—that is, their performance under conditions of sliding.</div>
+            <div class="translation">二十世纪的进步在于：将内聚力纳入考量；了解一般土的基本物理特性，尤其是粘土的可塑性；以及系统研究土的剪切特性——即土在滑动条件下的表现。</div>
+        </div>
+
+        <!-- 破裂面 / 圆弧滑动 / 太沙基固结 -->
+        <div class="gram-card">
+            <div class="badge">破裂面 · 太沙基固结理论</div>
+            <div class="eng-sentence">Both Coulomb’s and Rankine’s theories assumed that the surface of rupture of soil subjected to a shearing force is a plane. While this is a reasonable approximation for sand, cohesive soils tend to slip along a curved surface.</div>
+            <div class="translation">库仑和朗金的土压力理论都假设土体在剪切力作用下的破裂面是一个平面。虽然对于砂土来说这是一个合理的近似，但粘性土往往沿着曲面滑动。</div>
+            <div class="eng-sentence">In the early 20th century, Swedish engineers proposed a circular arc as the surface of slip. During the last half century considerable progress has been made in the scientific study of soils and in the application of theory and experimental data to engineering design.</div>
+            <div class="translation">20世纪初，瑞典工程师提出将圆弧作为滑动面。在过去的半个世纪里，土体的科学研究以及理论与试验数据在工程设计中的应用均取得了显著进展。</div>
+            <div class="eng-sentence">A significant advance was made by the German engineer Karl Terzaghi, who in 1925 published a mathematical investigation of the rate of consolidation of clays under applied pressures. His analysis, which was confirmed experimentally, explained the time lag of settlements of fully waterlogged clay deposits. Terzaghi coined the term soil mechanics in 1925 when he published the book Erdbaumechanik (“Earth-Building Mechanics”).</div>
+            <div class="translation">德国工程师卡尔·太沙基取得了重大进展，他于1925年发表了一项关于粘土在施加压力作用下固结速率的数学研究成果。他的分析经试验证实后，解释了完全浸水粘土沉积层沉降的时间滞后现象。1925年，太沙基在出版《Erdbaumechanik》（《土力学》）一书时，创造了“土力学”这一术语。</div>
+            <div class="grammar-note">🕰️ <strong>consolidation</strong> 固结；<strong>time lag</strong> 时间滞差；<strong>coined</strong> /kɔɪnd/ 创造（新词）。</div>
+        </div>
+
+        <!-- 工程性质：内摩擦、内聚力、压缩性、弹性、渗透性等 -->
+        <div class="section-sub">⚙️ 土的工程性质</div>
+        <div class="gram-card">
+            <div class="badge">内摩擦 & 内聚力</div>
+            <div class="eng-sentence">Internal friction is the resistance to sliding offered by the soil mass. Sand and gravel have higher internal friction than clays; in the latter an increase in moisture lowers the internal friction.</div>
+            <div class="translation">内摩擦力是土体抵抗滑动的力。砂土和砾石土比粘土有更大的内摩擦力；粘土中水气的增加会降低内摩擦力。</div>
+            <div class="eng-sentence">Also resisting the danger of shear is the property of cohesion, which is the mutual attraction of soil particles due to molecular forces and the existence of moisture between them.</div>
+            <div class="translation">同样能够抵抗剪切危险的，是土的内聚力这一性质。内聚力是由土颗粒之间的分子力以及它们之间存在的湿气共同作用而产生的相互吸引力。</div>
+            <div class="grammar-note">💧 <strong>moisture</strong> /ˈmɔɪs.tʃɚ/ 水分；<strong>mutual</strong> /ˈmjuː.tʃu.əl/ 相互的；<strong>molecular</strong> /məˈlek.jə.lɚ/ 分子的。</div>
+        </div>
+
+        <div class="gram-card">
+            <div class="badge">压缩性 · 弹性 · 渗透性 · 毛细作用</div>
+            <div class="eng-sentence">Compressibility is an important soil characteristic because of the possibility of compacting the soil by rolling, tamping, vibration, or other means, thus increasing its density and load-bearing strength.</div>
+            <div class="translation">可压缩性是土的一个重要特性，因为可以通过碾压、夯实、振捣或其他方式对土进行压实，从而增加其密度和承载强度。</div>
+            <div class="eng-sentence">An elastic soil tends to resume its original condition after compaction. Elastic (expansible) soils are unsuitable as sub-grades for flexible pavements since they compact and expand as a vehicle passes over them, causing failure of the pavement.</div>
+            <div class="translation">弹性土在压实后往往会恢复其原始状态。弹性（即膨胀性）土不适合用作柔性路面的路基，因为当车辆驶过时，它们会发生压缩与膨胀，从而导致路面破坏。</div>
+            <div class="eng-sentence">Permeability is the property of a soil that permits the flow of water through it. Freezing-thawing cycles in winter and wetting-drying cycles in summer alter the packing density of soil grains. Capillarity causes water to rise through the soil above the normal horizontal plane of free water. In clays, moisture may be raised as much as 30 feet by capillarity.</div>
+            <div class="translation">渗透性是土体允许水通过其中的性质。冬季的冻融循环和夏季的干湿循环改变了土颗粒的填实密度。毛细作用使水沿着土体中的孔隙上升到自由水平面以上。在粘土中，水分通过毛细作用可升高多达30英尺。</div>
+            <div class="grammar-note">📊 <strong>compacting</strong> 动名词作介词宾语；<strong>thus increasing</strong> 现在分词作结果状语。</div>
+        </div>
+
+        <div class="gram-card">
+            <div class="badge">密度 · 稳定性 · 固结</div>
+            <div class="eng-sentence">Density can be determined by weight and volume measurements or by special measuring devices. Stability of soils is measured by an instrument called a stabilometer, which specifically measures the horizontal pressure transmitted by a vertical load. Consolidation is the compaction or pressing together of soil that occurs under a specific load condition; this property is also tested.</div>
+            <div class="translation">密度可以通过称重和体积测量来确定，或通过特殊测量装置来测定。土的稳定性通过一种称为稳定仪的仪器来测量，该仪器专门用于测量由竖向荷载传递的水平压力。固结是土壤在特定荷载条件下发生的压实或受压过程；这一性质也需要通过试验来测定。</div>
+        </div>
+
+        <!-- 场地调查 -->
+        <div class="section-sub">🔎 场地调查 (Site Investigation)</div>
+        <div class="gram-card">
+            <div class="badge">勘察目的 · 范围</div>
+            <div class="eng-sentence">Soil surveys are conducted to gather data on the nature and extent of the soil expected to be encountered on a project. The amount of effort spent on site investigation depends on the size and importance of the project; it may range from visual inspection to elaborate subsurface exploration by boring and laboratory testing.</div>
+            <div class="translation">进行土质调查是为了收集有关工程项目中预计会遇到的土的性质与范围的数据。场地调查所投入的工作量取决于项目的规模与重要性；其范围可以从目视检查，到通过钻孔和实验室测试进行的精细地下勘探。</div>
+            <div class="grammar-note">🧪 <strong>elaborate</strong> /ɪˈlæb.ər.ət/ 复杂的，精心的。</div>
+        </div>
+
+        <div class="gram-card">
+            <div class="badge">取样原则 · 分层差异</div>
+            <div class="eng-sentence">Collection of representative samples is essential for proper identification and classification of soils. The number of samples taken depends on previously available data, variation in soil types, and the size of the project. Generally, in the natural profile at a location, there is more variation in soil characteristics with depth than with horizontal distance.</div>
+            <div class="translation">采集具有代表性的土样对于准确鉴别和分类土壤至关重要。所取试样的数量取决于已有数据、土壤类型的变化情况以及工程规模。通常情况下，在某一位置土的天然剖面中，深度方向上土壤特性的差异要大于水平方向。</div>
+            <div class="eng-sentence">It is not good practice to collect composite samples for any given horizon (layer), since this does not truly represent any one location and could prove misleading. Even slight variations in soil characteristics in a horizon should be duly noted.</div>
+            <div class="translation">对于任何给定的土层（地层）采集混合样并非良好的实践，因为这不能真正代表任何一处的情况，并且可能会产生误导。即使是水平层很细小的特性差异也要仔细关注。</div>
+        </div>
+
+        <div class="gram-card">
+            <div class="badge">辅助信息 · 物探技术</div>
+            <div class="eng-sentence">An understanding of the eventual use of the data obtained during site investigation is important. Advance information on site conditions is helpful in planning any survey program. Information on topography, geological features, paleontological maps, aerial photographs, well logs, and excavations can prove invaluable.</div>
+            <div class="translation">理解场地调查期间所获取数据的最终用途非常重要。关于场地条件的预先信息有助于规划任何调查方案。有关地形、地质特征、古生物图、航拍照片、井道日志以及开挖情况的信息，可证明是无价之宝。</div>
+            <div class="eng-sentence">Geophysical exploration methods yield useful corroboratory data. Measurement of the electrical resistivity of soils provides an insight into several soil characteristics. Seismic techniques are often used to determine the characteristics of various subsurface strata by measuring the velocity of propagation of explosively generated shock waves through the strata.</div>
+            <div class="translation">地球物理勘探方法能提供有用的确证性数据。测量土壤的电阻率可以深入了解土壤的若干特性。地震技术通常用于通过测量爆炸产生的冲击波在地层中的传播速度，来确定不同地下地层的特征。</div>
+            <div class="grammar-note">🌊 <strong>seismic</strong> /ˈsaɪz.mɪk/ 地震的；<strong>strata</strong> /ˈstreɪ.t̬ə/ 地层。</div>
+        </div>
+
+        <div class="gram-card">
+            <div class="badge">原位测试工具</div>
+            <div class="eng-sentence">Dependable subsurface information can only be obtained by excavation. A probe rod pushed into the ground indicates the penetration resistance. Water jets or augers are used to bring subsurface materials to the surface for examination. Color change is one of the significant elements such an examination can reveal.</div>
+            <div class="translation">只有通过开挖才能获得可靠的地下信息。将探针推入土中，可以显示其贯入阻力。水力喷射或螺旋钻用于将地下材料带到地表进行检查。颜色变化是此类检查能揭示的重要特征之一。</div>
+            <div class="eng-sentence">Trenches or pits provide more complete information for shallow depths. Pneumatic or diamond drilling may be required if hard rock is encountered. At least a few of the boreholes should exceed the depth of significant stress that is established for the structure.</div>
+            <div class="translation">对于浅层深度，沟槽或探坑可提供更完整的信息。如果遇到坚硬岩石，则可能需要采用气动钻探或金刚石钻探。至少有一部分钻孔的深度应超过为结构所确定的显著应力影响深度。</div>
+        </div>
+
+        <div class="gram-card">
+            <div class="badge">样品保护与记录</div>
+            <div class="eng-sentence">Avoidance of structural disturbance of the samples is not critical for some tests but is very important for in-place density or shearing strength measurements. Complete and accurate records, such as borehole logs, must be prepared and maintained, and the samples themselves must be retained for future inspection.</div>
+            <div class="translation">避免取样对土体结构产生扰动对于某些试验而言并非关键，但对于原位密度或抗剪强度的测量则至关重要。完整而准确的记录，如钻孔日志，必须编制并妥善保管，样品本身也应留存以备后续检查。</div>
+        </div>
+
+        <!-- 应用与工程实例 -->
+        <div class="section-title">🏗️ 土力学工程应用</div>
+        <div class="row-two-col">
+            <div class="col"><div class="gram-card">📌 excavation pit · 基坑</div></div>
+            <div class="col"><div class="gram-card">📌 ground improvement · 地基处理</div></div>
+            <div class="col"><div class="gram-card">📌 tunnel · 隧道</div></div>
+            <div class="col"><div class="gram-card">📌 underground caverns of hydropower station · 水电站地下洞室</div></div>
+        </div>
+        <div class="gram-card" style="background:#f9fcfd;">
+            <div class="badge">大连新机场海上承台及桩基处理</div>
+            <div>海洋岩土工程典型案例 —— 承台与桩基协同承载，体现土力学在复杂环境中的应用。</div>
+        </div>
+    </div>
+    <footer>
+        🌱 基于《土木工程专业英语》第3版（段兵廷主编）整理 | 课件内容涵盖土力学基本理论、工程性质、场地调查及专业术语<br>
+        📚 课堂研讨：土力学如何帮助工程师预测地基沉降与边坡稳定？
+    </footer>
+</div>
+</body>
+</html>
